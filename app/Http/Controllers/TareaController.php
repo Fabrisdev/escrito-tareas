@@ -31,4 +31,20 @@ class TareaController extends Controller
     public function MostrarUna(Request $request, $id){
         return Tarea::FindOrFail($id);
     }
+
+    public function Modificar(Request $request, $id){
+        $validacion = Validator::make($request -> all(), [ 
+            "titulo" => "min:1|max:50",
+            "contenido" => "min:1|max:255",
+            "autor" => "min:1|max:50"
+        ]);
+        if($validacion -> fails())
+            return response($validacion -> errors(), 400);
+        $tarea = Tarea::FindOrFail($id);
+        $tarea -> titulo = $request -> post("titulo", $tarea -> titulo);
+        $tarea -> contenido = $request -> post("contenido", $tarea -> contenido);
+        $tarea -> autor = $request -> post("autor", $tarea -> autor);
+        $tarea -> save();
+        return $tarea;
+    }
 }
