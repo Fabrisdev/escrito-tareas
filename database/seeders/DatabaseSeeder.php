@@ -20,5 +20,12 @@ class DatabaseSeeder extends Seeder
         $tarea -> contenido = "Lavar el suelo, tirar basura, ordenar cama, limpiar ventanas";
         $tarea -> autor = "Pedro";
         $tarea -> save();
+
+        $tarea2 = new Tarea();
+        $tarea2 -> id = 2;
+        $tarea2 -> titulo = "Ordenar cuarto";
+        $tarea2 -> contenido = "Lavar el suelo, tirar basura, ordenar cama, limpiar ventanas";
+        $tarea2 -> autor = "Pedro";
+        $tarea2 -> save();
     }
 }
