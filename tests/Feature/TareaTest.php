@@ -33,6 +33,20 @@ class TareaTest extends TestCase
     {
         $response = $this -> get('/api/v1/tarea');
         $response -> assertStatus(200);
+        $response -> assertJson([
+            [ 
+                "id" => 1,
+                "titulo" => "Ordenar cuarto",
+                "contenido" => "Lavar el suelo, tirar basura, ordenar cama, limpiar ventanas",
+                "autor" => "Pedro"
+            ],
+            [ 
+                "id" => 2,
+                "titulo" => "Ordenar cuarto",
+                "contenido" => "Lavar el suelo, tirar basura, ordenar cama, limpiar ventanas",
+                "autor" => "Pedro"
+            ]
+        ]);
     }
 
     public function test_borrar_tarea()
