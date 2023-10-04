@@ -51,4 +51,8 @@ class TareaController extends Controller
         $tarea -> save();
         return $tarea;
     }
+
+    public function Eliminar(Request $request, $id){
+        Tarea::FindOrFail($id) -> delete();
+    }
 }
