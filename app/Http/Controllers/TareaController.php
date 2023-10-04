@@ -23,4 +23,8 @@ class TareaController extends Controller
         $tarea -> save();
         return $tarea;
     }
+
+    public function Listar(){
+        return Tarea::all();
+    }
 }
