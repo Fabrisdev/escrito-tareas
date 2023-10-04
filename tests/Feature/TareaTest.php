@@ -34,4 +34,13 @@ class TareaTest extends TestCase
         $response = $this -> get('/api/v1/tarea');
         $response -> assertStatus(200);
     }
+
+    public function test_borrar_tarea()
+    {
+        $response = $this -> delete('/api/v1/tarea/1');
+        $response -> assertStatus(200);
+        $this -> assertDatabaseMissing("tareas", [ 
+            "id" => 1
+        ]);
+    }
 }
