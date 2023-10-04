@@ -24,4 +24,5 @@ Route::prefix("v1") -> group(function(){
     Route::get("tarea", [ TareaController::class, "Listar" ]);
     Route::get("tarea/{d}", [ TareaController::class, "MostrarUna" ]);
     Route::put("tarea/{d}", [ TareaController::class, "Modificar" ]);
+    Route::delete("tarea/{d}", [ TareaController::class, "Eliminar" ]);
 });
