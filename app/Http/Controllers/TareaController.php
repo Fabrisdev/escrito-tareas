@@ -15,7 +15,7 @@ class TareaController extends Controller
             "autor" => "required|min:1|max:50"
         ]);
         if($validacion -> fails())
-            return $validacion -> errors();
+            return response($validacion -> errors(), 400);
         $tarea = new Tarea();
         $tarea -> titulo = $request -> post("titulo");
         $tarea -> contenido = $request -> post("contenido");
