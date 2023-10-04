@@ -1,6 +1,6 @@
 create database escrito_programacion;
 use escrito_programacion;
-create table tarea(
+create table tareas(
 	id serial primary key,
     titulo varchar(50) not null,
     contenido varchar(255) not null,
