@@ -14,8 +14,10 @@ class TareaController extends Controller
             "contenido" => "required|min:1|max:255",
             "autor" => "required|min:1|max:50"
         ]);
-        if($validacion -> fails())
-            return response($validacion -> errors(), 400);
+        if($validacion -> fails()){
+            $HTTP_BAD_REQUEST = 400;
+            return response($validacion -> errors(), $HTTP_BAD_REQUEST);
+        }
         $tarea = new Tarea();
         $tarea -> titulo = $request -> post("titulo");
         $tarea -> contenido = $request -> post("contenido");
@@ -38,8 +40,10 @@ class TareaController extends Controller
             "contenido" => "min:1|max:255",
             "autor" => "min:1|max:50"
         ]);
-        if($validacion -> fails())
-            return response($validacion -> errors(), 400);
+        if($validacion -> fails()){
+            $HTTP_BAD_REQUEST = 400;
+            return response($validacion -> errors(), $HTTP_BAD_REQUEST);
+        }
         $tarea = Tarea::FindOrFail($id);
         $tarea -> titulo = $request -> post("titulo", $tarea -> titulo);
         $tarea -> contenido = $request -> post("contenido", $tarea -> contenido);
