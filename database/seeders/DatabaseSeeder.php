@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Tarea;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -13,6 +14,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        $tarea = new Tarea();
+        $tarea -> id = 1;
+        $tarea -> titulo = "Ordenar cuarto";
+        $tarea -> contenido = "Lavar el suelo, tirar basura, ordenar cama, limpiar ventanas";
+        $tarea -> autor = "Pedro";
+        $tarea -> save();
     }
 }
