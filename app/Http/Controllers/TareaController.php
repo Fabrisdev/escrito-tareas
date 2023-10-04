@@ -21,5 +21,6 @@ class TareaController extends Controller
         $tarea -> contenido = $request -> post("contenido");
         $tarea -> autor = $request -> post("autor");
         $tarea -> save();
+        return $tarea;
     }
 }
