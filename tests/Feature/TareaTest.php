@@ -43,4 +43,16 @@ class TareaTest extends TestCase
             "id" => 1
         ]);
     }
+
+    public function test_mostrar_una_tarea()
+    {
+        $response = $this -> get('/api/v1/tarea/2');
+        $response -> assertStatus(200);
+        $response -> assertJson([ 
+            "id" => 2,
+            "titulo" => "Ordenar cuarto",
+            "contenido" => "Lavar el suelo, tirar basura, ordenar cama, limpiar ventanas",
+            "autor" => "Pedro"
+        ]);
+    }
 }
